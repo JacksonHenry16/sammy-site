@@ -145,6 +145,15 @@ ul {
   max-width: 1000px; /* or 1200px if you want bigger */
 }
 
+/* Tighter spacing on single-video pages */
+.video-page .video-wrapper {
+  margin-top: 0.5rem;
+}
+
+.video-page section {
+  margin-bottom: 0;
+}
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
