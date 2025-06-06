@@ -100,3 +100,22 @@ ul {
 /* Vimeo Video */
 .v
 
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo-block img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.logo-name {
+  font-size: 0.9rem;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
