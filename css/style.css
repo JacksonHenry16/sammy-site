@@ -104,18 +104,19 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .logo-block img {
   width: 200px;
   height: auto;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.25rem;
 }
 
 .logo-name {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   color: #aaa;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
