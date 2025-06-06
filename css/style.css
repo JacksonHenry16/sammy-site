@@ -88,11 +88,13 @@ ul {
 
 /* Image Grid */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
   margin: 2rem 0;
 }
+
 
 .photo-grid img {
   width: 100%;
@@ -210,18 +212,11 @@ ul {
 }
 
 .photo-card {
-  position: relative;
-  display: inline-block;
   width: 200px;
-  height: auto;
+  position: relative;
   border-radius: 6px;
   overflow: hidden;
-}
-
-.photo-card img {
-  width: 100%;
-  display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  display: inline-block;
 }
 
 .photo-card .photo-title {
