@@ -148,7 +148,7 @@ ul {
 
 /* Tighter spacing on single-video pages */
 .video-page .video-wrapper {
-  margin: 0.25rem 0 0.5rem;
+  margin: 0;
 }
 
 .video-page section {
@@ -157,11 +157,12 @@ ul {
 
 /* Reduce spacing on standalone video pages */
 main.video-page {
-  padding-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 0;
 }
 
 .video-page .video-title {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
 }
 
 main section {
