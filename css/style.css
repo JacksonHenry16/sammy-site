@@ -190,3 +190,41 @@ ul {
     max-width: 160px;
   }
 }
+
+.photo-card {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.photo-card img {
+  width: 200px;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.photo-card:hover img {
+  opacity: 0.75; /* slight darkening on hover */
+}
+
+.photo-title {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.4rem 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.photo-card:hover .photo-title {
+  opacity: 1;
+}
