@@ -43,26 +43,26 @@ nav a {
   font-size: 1rem;
   position: relative;
   display: inline-block;
-  padding-left: 0.75rem;
+  padding-left: 0.75rem; /* indent both text and underline */
 }
 
 nav a::after {
   content: '';
   position: absolute;
-  width: 100%;
+  width: calc(100% - 0.75rem); /* matches indent */
   height: 1px;
-  left: 0;
+  left: 0.75rem;               /* same as padding-left */
   bottom: -3px;
   background: #fff;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
-  margin-left: 0.75rem; /* moves underline with text */
 }
 
 nav a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
+
 
 /* Main Content */
 main {
