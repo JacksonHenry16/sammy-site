@@ -14,7 +14,6 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 /* Sidebar Navigation */
@@ -69,12 +68,12 @@ nav a:hover::after {
 /* Main Content */
 main {
   margin-left: 220px;
-  padding: 4rem 2rem 2rem;
-  flex: 1;
+  padding: 4rem 2rem 0;
 }
 footer {
   margin-left: 220px;
-  padding: 2rem;
+  padding: 0.5rem 2rem;
+  margin-top: 0;
   text-align: left;
 }
 
@@ -102,7 +101,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
 
@@ -142,9 +141,23 @@ ul {
   padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   width: 100%;
   max-width: 1000px; /* or 1200px if you want bigger */
+}
+
+/* Tighter spacing on single-video pages */
+.video-page .video-wrapper {
+  margin-top: 0.5rem;
+}
+
+
+.video-page section {
+  margin-bottom: 0;
+}
+
+main section {
+  margin-bottom: 0;
 }
 
 .video-wrapper iframe {
@@ -203,12 +216,13 @@ ul {
 
   main {
     margin-left: 0;
-    padding: 2rem 1rem 1rem;
+    padding: 2rem 1rem 0;
   }
 
   footer {
     margin-left: 0;
-    padding: 2rem 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 0;
   }
 
   .photo-grid {
