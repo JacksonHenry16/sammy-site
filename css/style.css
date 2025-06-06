@@ -69,7 +69,7 @@ nav a:hover::after {
 /* Main Content */
 main {
   margin-left: 220px;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem;
   flex: 1;
 }
 footer {
@@ -85,7 +85,7 @@ h2 {
 }
 
 .video-title {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 section p, ul {
@@ -142,7 +142,7 @@ ul {
   padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   width: 100%;
   max-width: 1000px; /* or 1200px if you want bigger */
 }
@@ -203,7 +203,7 @@ ul {
 
   main {
     margin-left: 0;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 1rem;
   }
 
   footer {
