@@ -77,6 +77,10 @@ h2 {
   margin-bottom: 2rem;
 }
 
+.video-title {
+  margin-bottom: 1rem;
+}
+
 section p, ul {
   margin-bottom: 2rem;
 }
@@ -130,7 +134,7 @@ ul {
   padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
-  margin: 3rem 0;
+  margin: 1.5rem 0;
   width: 100%;
   max-width: 1000px; /* or 1200px if you want bigger */
 }
