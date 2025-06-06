@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +17,10 @@ body {
   min-height: 100vh;
 }
 
+body > nav {
+  flex-shrink: 0;
+}
+
 /* Sidebar Navigation */
 nav {
   width: 220px;
@@ -28,12 +33,7 @@ nav {
   top: 0;
   bottom: 0;
   left: 0;
-}
-
-nav h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 3rem;
+  border-right: 1px solid #222;
 }
 
 nav a {
@@ -43,15 +43,15 @@ nav a {
   font-size: 1rem;
   position: relative;
   display: inline-block;
-  padding-left: 0.75rem; /* indent both text and underline */
+  padding-left: 0.75rem;
 }
 
 nav a::after {
   content: '';
   position: absolute;
-  width: calc(100% - 0.75rem); /* matches indent */
+  width: calc(100% - 0.75rem);
   height: 1px;
-  left: 0.75rem;               /* same as padding-left */
+  left: 0.75rem;
   bottom: -3px;
   background: #fff;
   transform: scaleX(0);
@@ -63,47 +63,7 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
-
-/* Main Content */
-main {
-  margin-left: 220px;
-  padding: 4rem 2rem;
-  flex: 1;
-}
-
-h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-section p, ul {
-  margin-bottom: 2rem;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-/* Image Grid */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.photo-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* Vimeo Video */
-.v
-
+/* Logo Block */
 .logo-block {
   display: flex;
   flex-direction: column;
@@ -125,14 +85,116 @@ ul {
   margin-bottom: 1rem;
 }
 
+/* Page Content Wrapper */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* Main Content */
+main {
+  margin-left: 220px;
+  padding: 4rem 2rem;
+  flex: 1;
+}
+
+main.video-page {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+main.video-page section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+section p, ul {
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Image Grid */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+}
+
+/* Photo Cards with Hover */
+.photo-card {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.photo-card .photo-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  z-index: 2;
+}
+
+.photo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+
+.photo-card:hover .photo-title {
+  opacity: 1;
+}
+
+/* Vimeo Embed */
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   margin: 3rem auto;
   width: 100%;
-  max-width: 1000px; /* or 1200px if you want bigger */
+  max-width: 1200px;
 }
 
 .video-wrapper iframe {
@@ -143,6 +205,17 @@ ul {
   height: 100%;
 }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-top: 1px solid #222;
+  margin-left: 220px;
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -193,6 +266,10 @@ ul {
     padding: 2rem 1rem;
   }
 
+  main.video-page section {
+    padding: 1rem;
+  }
+
   footer {
     margin-left: 0;
     padding: 2rem 1rem;
@@ -200,94 +277,11 @@ ul {
 
   .photo-grid {
     justify-content: center;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
-  .photo-grid img {
-    width: 44vw;
+  .photo-card {
+    width: 45vw;
     max-width: 160px;
   }
-}
-
-.photo-card {
-  position: relative;
-  display: inline-block;
-  width: 200px;
-  height: auto;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.photo-card img {
-  width: 100%;
-  display: block;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.photo-card .photo-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 0.9rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: center;
-  z-index: 2;
-}
-
-.photo-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* dark overlay */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.photo-card:hover::after {
-  opacity: 1;
-}
-
-.photo-card:hover .photo-title {
-  opacity: 1;
-}
-
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-  display: flex;
-  min-height: 100vh;
-}
-
-/* This makes sure the nav and content are side by side on desktop */
-body > nav {
-  flex-shrink: 0;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
-}
-
-/* Optional: Ensure footer looks right even with short pages */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #aaa;
 }
