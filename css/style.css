@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,7 @@
 }
 
 body {
-  background: #000;
+  background-color: #000;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
@@ -17,41 +16,24 @@ body {
   min-height: 100vh;
 }
 
-body > nav {
-  flex-shrink: 0;
-}
-
-/* Navigation */
+/* Sidebar Navigation */
 nav {
   width: 220px;
+  background-color: #000;
   padding: 2rem 1rem;
-  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
-.logo-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.logo-block img {
-  width: 200px;
-  margin-bottom: 0.05rem;
-}
-
-.logo-name {
-  font-size: 1rem;
-  color: #aaa;
-  text-align: center;
-  margin-bottom: 1rem;
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
 }
 
 nav a {
@@ -60,15 +42,16 @@ nav a {
   margin-bottom: 1.5rem;
   font-size: 1rem;
   position: relative;
-  padding-left: 0.75rem;
+  display: inline-block;
+  padding-left: 0.75rem; /* indent both text and underline */
 }
 
 nav a::after {
   content: '';
   position: absolute;
-  width: calc(100% - 0.75rem);
+  width: calc(100% - 0.75rem); /* matches indent */
   height: 1px;
-  left: 0.75rem;
+  left: 0.75rem;               /* same as padding-left */
   bottom: -3px;
   background: #fff;
   transform: scaleX(0);
@@ -80,99 +63,76 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
-/* Page Layout */
-.content-wrapper {
-  margin-left: 220px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
+/* Main Content */
 main {
+  margin-left: 220px;
   padding: 4rem 2rem;
   flex: 1;
 }
 
-main.video-page {
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-main.video-page section {
-  width: 100%;
-  max-width: 1200px;
-  padding: 2rem;
-}
-
 h2 {
   font-size: 2rem;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
-/* Image Grid (3x2) */
+section p, ul {
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Image Grid */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 2rem;
-  justify-items: center;
+  margin: 2rem 0;
 }
 
-.photo-card {
-  width: 200px;
-  position: relative;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.photo-card img {
+.photo-grid img {
   width: 100%;
-  display: block;
-  transition: opacity 0.3s ease;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
-.photo-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+/* Vimeo Video */
+.v
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.photo-card:hover::after {
-  opacity: 1;
+.logo-block img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 0.05rem;
 }
 
-.photo-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1rem;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+.logo-name {
+  font-size: 0.95rem;
+  color: #aaa;
+  letter-spacing: 0.5px;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.photo-card:hover .photo-title {
-  opacity: 1;
-}
-
-/* Video Embed */
 .video-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 3rem auto;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
   height: 0;
   overflow: hidden;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 1000px; /* or 1200px if you want bigger */
 }
 
 .video-wrapper iframe {
@@ -183,45 +143,54 @@ h2 {
   height: 100%;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-left: 220px;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
   }
 
   nav {
-    position: static;
     width: 100%;
+    position: static;
     border-right: none;
     border-bottom: 1px solid #222;
+    padding: 2rem 1rem;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
 
-  .logo-block img {
-    width: 150px;
+  .logo-block {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
   }
 
-  .content-wrapper {
-    margin-left: 0;
+  .logo-block img {
+    width: 150px;
+    margin-bottom: 0.25rem;
+  }
+
+  .logo-name {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  nav a {
+    font-size: 1rem;
+    margin: 0;
+    text-indent: 0;
+    padding-left: 0;
+  }
+
+  nav a::after {
+    left: 0;
+    width: 100%;
   }
 
   main {
+    margin-left: 0;
     padding: 2rem 1rem;
-  }
-
-  main.video-page section {
-    padding: 1rem;
   }
 
   footer {
@@ -230,11 +199,61 @@ footer {
   }
 
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 0.75rem;
   }
 
-  .photo-card {
-    width: 45vw;
-    max-width: 180px;
+  .photo-grid img {
+    width: 44vw;
+    max-width: 160px;
   }
+}
+
+.photo-card {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.photo-card .photo-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  z-index: 2;
+}
+
+.photo-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* dark overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.photo-card:hover::after {
+  opacity: 1;
+}
+
+.photo-card:hover .photo-title {
+  opacity: 1;
 }
